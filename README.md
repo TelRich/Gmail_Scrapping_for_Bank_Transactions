@@ -18,9 +18,11 @@ The aim of this project is to use the gmail api to access and extract few parame
 > Pandas
 
 ## Summary
-I wrote a function that takes in a single argument, maximum result, and when called produce a dataframe of transactions corresponding to the given argument. Below is the definition and body contents of the function.
+I wrote a function that has three parameters, maximum result, convert to excel and convert to csv. Whhen called, the function produce a dataframe of transactions corresponding to the given argument. Below is the definition and body contents of the function.
 
-* The function has one parameter, `maxResult`, this specify the total number of transaction I want to retrieve. the default is 50.
+* `maxResult`: This denotes the number of transaction to be extracted. Default is 50.
+* `excel`: This parameter accept bool. When set to `True`, it wil create an excel file of the extracted transactions. Default is `False`
+* `csv`: This is similar to excel. This parameter when set to `True` will create a csv file in the working directory. Default is `False` 
 * A `filter` variable that holds the filtered message and thread IDs.
 * `id_lst` which holds the appended message ids from the previous step.
 * A loop which iterate over the available message ids and do the following:
