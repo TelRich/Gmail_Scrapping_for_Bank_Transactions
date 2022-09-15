@@ -58,7 +58,8 @@ def extract_transaction(maxResult=50, excel = False, csv=False):
             'trans_branch': trans_branch,
             'datetime': pd.to_datetime(date).tz_localize(None)
         })
-    
+
+
     # Assigning columns names and returning a dataframe of extracted parameters
     cols_name = ['amount', 'a/c_number', 'trans_type', 'description', 'reference_number', 'trans_branch', 'datetime']
     data = pd.DataFrame(trans_lst, columns=cols_name)
