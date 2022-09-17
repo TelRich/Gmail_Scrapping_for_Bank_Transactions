@@ -1,15 +1,20 @@
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
 import base64
+from ssl import SSLEOFError
 from bs4 import BeautifulSoup as bs
 import re
 import pandas as pd
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
-with open('token.json', 'rb') as token:
-    creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+
+flow = InstalledAppFlow.from_client_secrets_file('/Package/credentials.json', SCOPES)
+creds = flow.run_local_server(port=0)
 service = build('gmail', 'v1', credentials=creds)
 profile = service.users().getProfile(userId='me').execute()
+profile = pd.DataFrame([profile])
+print(profile)     # Viewing user gmail profile
 
 def extract_transaction(maxResult=50, excel = False, csv=False):
     # Filtering for transaction mails
@@ -69,7 +74,15 @@ def extract_transaction(maxResult=50, excel = False, csv=False):
     elif csv:
         data.to_csv("transaction.csv", index=False)
         
-    print(data)
+    print(data.head())
 
 if __name__ == '__main__':
-    extract_transaction(5)
+    try:
+        number = int(input("Input number of transaction to extract: "))
+        ex = eval(input("Save as excel file. True or False: ").title())
+        cs = eval(input("Save as csv file. True or False: ").title())
+    except SSLEOFError as error:
+        print("Run the code again")
+
+    extract_transaction(maxResult=number, excel=ex, csv=cs)
+        
