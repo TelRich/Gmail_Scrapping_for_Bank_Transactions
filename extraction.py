@@ -70,7 +70,7 @@ def extract_transaction(maxResult=50, excel = False, csv=False):
     data = pd.DataFrame(trans_lst, columns=cols_name)
     
     if excel:
-        data.to_excel("transaction.xlsx")
+        data.to_excel("transaction.xlsx", index=False)
     elif csv:
         data.to_csv("transaction.csv", index=False)
         
