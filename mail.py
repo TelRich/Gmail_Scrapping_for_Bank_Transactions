@@ -77,7 +77,9 @@ def extract_transaction(maxResult=50, excel = False, csv=False):
     print(data.head())
 
 if __name__ == '__main__':
+    # Handling SSL Error.
     try:
+        # Taking inputs from the command line
         number = int(input("Input number of transaction to extract: "))
         ex = eval(input("Save as excel file. True or False: ").title())
         cs = eval(input("Save as csv file. True or False: ").title())
