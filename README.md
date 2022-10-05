@@ -6,6 +6,8 @@ Everytime a transaction is carried out with my bank account, a mail is sent to m
 
 The aim of this project is to use the gmail api to access and extract few parameters from the transaction summary, then save it as a file. This file will then be used for visualization on Microsoft Power BI.
 
+[Notebook Viewer](https://nbviewer.org/github/TelRich/Gmail_Scrapping_for_Bank_Transactions/blob/main/transaction_eda.ipynb?flush_cache=True)
+
 ## Modules Used
 > Gmail API
 >
