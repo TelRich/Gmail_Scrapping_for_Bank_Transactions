@@ -36,7 +36,7 @@ I wrote a function that has three parameters, maximum result, convert to excel a
 * Returned the information back as a dataframe when the function is called.
 
 ## Summary Of EDA
-* 70.6% are Credit transactions while 29.4% are debbit transaction.
+* 70.6% are Credit transactions while 29.4% are debit transaction.
 * Majority of the transaction are handled by the Head Office, a total of 84.8%.
 * The average money entering the accounts is greater than the average money going out.
 * Its been discovered that airtime purchase is the second most transaction based on description. Airtime purchase is 31.4% after Transfer transaction which is 40.6%.
